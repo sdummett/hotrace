@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hotrace.h                                          :+:      :+:    :+:   */
+/*   ft_lstnew_korv.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdummett <sdummett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/11 13:46:57 by sdummett          #+#    #+#             */
-/*   Updated: 2021/12/11 16:35:02 by sdummett         ###   ########.fr       */
+/*   Created: 2021/12/11 15:00:50 by ctchen            #+#    #+#             */
+/*   Updated: 2021/12/11 15:27:02 by sdummett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HOTRACE_H
-# define HOTRACE_H
+#include "hotrace.h"
 
-#include "get_next_line.h"
-#include <stdio.h> //TO DELETE
-
-# define KEYWORD 0
-# define VALUE 1
-
-typedef struct s_data
+t_data	*ft_lstnew_korv(void *content, int bool)
 {
-    char             *keyword;
-    char             *value;
-    struct s_data    *next;
-} t_data;
+	t_data	*strc;
 
-void	ft_lstadd_back(t_data **alst, t_data *new);
-t_data  *ft_lstnew_korv(void *content, int bool);
-
-#endif
+	strc = (t_data *)malloc(sizeof(*strc));
+	if (!strc)
+		return (0);
+	if (bool == KEYWORD)
+		strc->keyword = content;
+	else if (bool == VALUE)
+		strc->value = content;
+	strc->next = 0;
+	return (strc);
+}

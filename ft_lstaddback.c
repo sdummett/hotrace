@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hotrace.h                                          :+:      :+:    :+:   */
+/*   ft_lstaddback.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdummett <sdummett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/11 13:46:57 by sdummett          #+#    #+#             */
-/*   Updated: 2021/12/11 16:35:02 by sdummett         ###   ########.fr       */
+/*   Created: 2021/12/11 14:18:00 by ctchen            #+#    #+#             */
+/*   Updated: 2021/12/11 14:56:13 by sdummett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HOTRACE_H
-# define HOTRACE_H
+#include "hotrace.h"
 
-#include "get_next_line.h"
-#include <stdio.h> //TO DELETE
-
-# define KEYWORD 0
-# define VALUE 1
-
-typedef struct s_data
+void	ft_lstadd_back(t_data **alst, t_data *new)
 {
-    char             *keyword;
-    char             *value;
-    struct s_data    *next;
-} t_data;
+	t_data	*ptr;
 
-void	ft_lstadd_back(t_data **alst, t_data *new);
-t_data  *ft_lstnew_korv(void *content, int bool);
-
-#endif
+	ptr = *alst;
+	if (!*alst)
+		*alst = new;
+	else
+	{
+		while (ptr && ptr->next)
+			ptr = ptr->next;
+		ptr->next = new;
+	}
+}
