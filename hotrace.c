@@ -6,7 +6,7 @@
 /*   By: sdummett <sdummett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 21:43:56 by sdummett          #+#    #+#             */
-/*   Updated: 2021/12/12 00:03:03 by sdummett         ###   ########.fr       */
+/*   Updated: 2021/12/12 00:13:33 by sdummett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,6 +183,7 @@ void ht_insert(t_hashtable* table, char* key, char* value)
 	
 	item = create_item(key, value);
 	index = hash_function(key);
+	printf("Hash is %d before inserting \n", index);
 	current_item = table->items[index];
 	if (current_item == NULL)
 	{
@@ -279,8 +280,8 @@ int get_datas(t_alpha_table *alpha_table)
 		}
 		else if (type == VALUE)
 		{
-			printf("hash is %lu\n", hash_function(line));
-			ht_insert(alpha_table[(unsigned int)line[0]].table, key, line);
+			//printf("hash is %lu\n", hash_function(line));
+			ht_insert(alpha_table[(unsigned int)key[0]].table, key, line);
 			type = KEYWORD;
 		}
     }
