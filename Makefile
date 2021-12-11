@@ -6,7 +6,7 @@
 #    By: sdummett <sdummett@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/11 14:15:47 by sdummett          #+#    #+#              #
-#    Updated: 2021/12/11 14:22:19 by sdummett         ###   ########.fr        #
+#    Updated: 2021/12/11 14:35:53 by sdummett         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 %.o: %.c
@@ -30,7 +30,6 @@ $(NAME): $(OBJ)
 
 clean:
 	rm -f $(OBJ)
-	rm -f $(OBJBONUS)
 
 fclean: clean
 	rm -f $(NAME)
