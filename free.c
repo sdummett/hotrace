@@ -6,7 +6,7 @@
 /*   By: sdummett <sdummett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 10:05:50 by sdummett          #+#    #+#             */
-/*   Updated: 2021/12/12 11:51:28 by sdummett         ###   ########.fr       */
+/*   Updated: 2021/12/12 15:38:11 by ctchen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ void	free_item(t_ht_item *item)
 
 t_ht_item	*bucket_remove(t_bucket *list)
 {
-    // Removes the head from the linked list
-    // and returns the item of the popped element
 	t_ht_item	*item;
 	t_bucket	*node;
 	t_bucket	*temp;
@@ -62,7 +60,6 @@ void	free_buckets(t_bucket *list)
 
 void	free_buckets_arrays(t_hashtable *table)
 {
-    // Free all the overflow bucket lists
 	int			i;
 	t_bucket	**buckets;
 

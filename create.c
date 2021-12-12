@@ -6,7 +6,7 @@
 /*   By: sdummett <sdummett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 10:36:28 by sdummett          #+#    #+#             */
-/*   Updated: 2021/12/12 14:26:26 by sdummett         ###   ########.fr       */
+/*   Updated: 2021/12/12 15:37:55 by ctchen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ t_ht_item	*create_item(char *key, char *value)
 
 t_bucket	**create_buckets(t_hashtable *table)
 {
-	// Create the overflow buckets; an array of t_buckets
 	t_bucket	**buckets;
 	int			i;
 

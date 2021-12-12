@@ -13,3 +13,6 @@
 hotrace
 *.o
 vogsphere
+.vscode/
+SecLists/
+time

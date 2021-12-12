@@ -6,7 +6,7 @@
 /*   By: sdummett <sdummett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 21:43:56 by sdummett          #+#    #+#             */
-/*   Updated: 2021/12/12 13:52:25 by sdummett         ###   ########.fr       */
+/*   Updated: 2021/12/12 15:38:40 by ctchen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,6 @@ void	init_alpha_table(t_alpha_table *alpha_table)
 		i++;
 	}
 }
- 
-// void print_table(t_hashtable* table)
-// {
-//     printf("\nHash Table\n-------------------\n");
-//     for (int i=0; i<table->size; i++) {
-//         if (table->items[i]) {
-//             printf("Index:%d, Key:%s, Value:%s\n", i, table->items[i]->key, table->items[i]->value);
-//         }
-//     }
-//     printf("-------------------\n\n");
-// }
 
 int	get_datas(t_hashtable *table)
 {
@@ -70,11 +59,9 @@ int	get_datas(t_hashtable *table)
 int	main(void)
 {
 	int				ret;
-	// t_alpha_table	alpha_table[ALPHA_TABLE_SIZE];
 	t_hashtable		*table;
 
 	table = create_table(CAPACITY);
-	//init_alpha_table(alpha_table);
 	ret = get_datas(table);
 	if (ret > 0)
 		search_datas(table);

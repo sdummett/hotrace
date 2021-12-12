@@ -6,13 +6,13 @@
 /*   By: sdummett <sdummett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 10:03:19 by sdummett          #+#    #+#             */
-/*   Updated: 2021/12/12 10:03:49 by sdummett         ###   ########.fr       */
+/*   Updated: 2021/12/12 15:23:04 by ctchen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "hotrace.h"
 
-int ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
 	unsigned int	len;
 
@@ -65,18 +65,4 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 		}
 	}
 	return (dest);
-}
-
-int	ft_strncmp(const char *str1, const char *str2, size_t count)
-{
-	if (!count)
-		return (0);
-	while (--count && *str1)
-	{
-		if (*str1 != *str2)
-			return (*(unsigned char *)str1 - *(unsigned char *)str2);
-		str1++;
-		str2++;
-	}
-	return (*(unsigned char *)str1 - *(unsigned char *)str2);
 }
