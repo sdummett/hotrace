@@ -6,7 +6,7 @@
 /*   By: sdummett <sdummett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 10:20:25 by sdummett          #+#    #+#             */
-/*   Updated: 2021/12/12 17:14:16 by sdummett         ###   ########.fr       */
+/*   Updated: 2021/12/12 17:49:45 by sdummett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	search_datas(t_hashtable *table)
 	}
 	if (line && line[0] == '\0')
 		free(line);
-	else
+	else if (line)
 	{
 		print_search(table, line);
 		free(line);

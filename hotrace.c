@@ -6,7 +6,7 @@
 /*   By: sdummett <sdummett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 21:43:56 by sdummett          #+#    #+#             */
-/*   Updated: 2021/12/12 16:54:50 by sdummett         ###   ########.fr       */
+/*   Updated: 2021/12/12 18:06:15 by sdummett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	get_datas(t_hashtable *table)
 		ret = get_next_line(0, &line);
 		if (line[0] == '\0')
 		{
-			//free(line);
+			free(line);
 			break ;
 		}
 		if (type == KEYWORD)
@@ -42,10 +42,10 @@ int	get_datas(t_hashtable *table)
 		}
 	}
 	if (type == VALUE)
-		ht_insert(table, key, line);
+		ht_insert(table, key, NULL);
 	return (ret);
 }
-#include <stdio.h>
+
 int	main(void)
 {
 	int				ret;
@@ -55,7 +55,6 @@ int	main(void)
 	ret = get_datas(table);
 	if (ret > 0)
 		search_datas(table);
-	printf("table->count = %d\n", table->count);
 	free_table(table);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: sdummett <sdummett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 10:38:49 by sdummett          #+#    #+#             */
-/*   Updated: 2021/12/12 16:36:13 by sdummett         ###   ########.fr       */
+/*   Updated: 2021/12/12 18:06:24 by sdummett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,8 @@ void	ht_insert(t_hashtable *table, char *key, char *value)
 	{
 		if (ft_strncmp(current_item->key, key, ft_strlen(key)) == 0)
 		{
-			free(table->items[index]->value);
-			table->items[index]->value = value;
+			free_item(current_item);
+			table->items[index] = item;
 			return ;
 		}
 		else
