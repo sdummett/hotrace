@@ -6,7 +6,7 @@
 /*   By: sdummett <sdummett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 13:46:57 by sdummett          #+#    #+#             */
-/*   Updated: 2021/12/12 11:02:57 by sdummett         ###   ########.fr       */
+/*   Updated: 2021/12/12 13:49:25 by sdummett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ t_ht_item		*bucket_remove(t_bucket *list);
 /*
 ** Search
 */
-void			search_datas(t_alpha_table *alpha_table);
+void			search_datas(t_hashtable *table);
 void			print_search(t_hashtable *table, char *key);
 char			*hashtable_search(t_hashtable *table, char *key);
 

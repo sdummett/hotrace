@@ -6,7 +6,7 @@
 /*   By: sdummett <sdummett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 21:43:56 by sdummett          #+#    #+#             */
-/*   Updated: 2021/12/12 12:18:17 by sdummett         ###   ########.fr       */
+/*   Updated: 2021/12/12 13:52:25 by sdummett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	init_alpha_table(t_alpha_table *alpha_table)
 //     printf("-------------------\n\n");
 // }
 
-int	get_datas(t_alpha_table *alpha_table)
+int	get_datas(t_hashtable *table)
 {
 	char	*line;
 	char	*key;
@@ -54,16 +54,13 @@ int	get_datas(t_alpha_table *alpha_table)
 			break ;
 		}
 		if (type == KEYWORD)
-		{
-			if (alpha_table[(unsigned int)line[0]].table == NULL)
-				alpha_table[(unsigned int)line[0]].table =
-					create_table(CAPACITY);
+		{			
 			key = line;
 			type = VALUE;
 		}
 		else if (type == VALUE)
 		{
-			ht_insert(alpha_table[(unsigned int)key[0]].table, key, line);
+			ht_insert(table, key, line);
 			type = KEYWORD;
 		}
 	}
@@ -73,11 +70,13 @@ int	get_datas(t_alpha_table *alpha_table)
 int	main(void)
 {
 	int				ret;
-	t_alpha_table	alpha_table[ALPHA_TABLE_SIZE];
+	// t_alpha_table	alpha_table[ALPHA_TABLE_SIZE];
+	t_hashtable		*table;
 
-	init_alpha_table(alpha_table);
-	ret = get_datas(alpha_table);
+	table = create_table(CAPACITY);
+	//init_alpha_table(alpha_table);
+	ret = get_datas(table);
 	if (ret > 0)
-		search_datas(alpha_table);
+		search_datas(table);
 	return (0);
 }

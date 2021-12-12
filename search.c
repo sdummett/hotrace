@@ -6,7 +6,7 @@
 /*   By: sdummett <sdummett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 10:20:25 by sdummett          #+#    #+#             */
-/*   Updated: 2021/12/12 12:22:53 by sdummett         ###   ########.fr       */
+/*   Updated: 2021/12/12 13:49:16 by sdummett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	print_search(t_hashtable *table, char *key)
 	}
 }
 
-void	search_datas(t_alpha_table *alpha_table)
+void	search_datas(t_hashtable *table)
 {
 	char	*line;
 
@@ -67,6 +67,6 @@ void	search_datas(t_alpha_table *alpha_table)
 		if (ft_strlen(line) == 0)
 			free(line);
 		else
-			print_search(alpha_table[(unsigned int)line[0]].table, line);
+			print_search(table, line);
 	}
 }

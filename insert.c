@@ -6,7 +6,7 @@
 /*   By: sdummett <sdummett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 10:38:49 by sdummett          #+#    #+#             */
-/*   Updated: 2021/12/12 13:34:23 by sdummett         ###   ########.fr       */
+/*   Updated: 2021/12/12 14:26:05 by sdummett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ void	ht_insert(t_hashtable *table, char *key, char *value)
 
 	item = create_item(key, value);
 	index = hash_function(key);
-	printf("Hash is %d before inserting \n", index);
 	current_item = table->items[index];
 	if (current_item == NULL)
 	{
