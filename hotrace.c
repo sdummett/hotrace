@@ -6,23 +6,11 @@
 /*   By: sdummett <sdummett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 21:43:56 by sdummett          #+#    #+#             */
-/*   Updated: 2021/12/12 15:38:40 by ctchen           ###   ########.fr       */
+/*   Updated: 2021/12/12 16:54:50 by sdummett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "hotrace.h"
-
-void	init_alpha_table(t_alpha_table *alpha_table)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (i < ALPHA_TABLE_SIZE)
-	{
-		alpha_table[i].table = NULL;
-		i++;
-	}
-}
 
 int	get_datas(t_hashtable *table)
 {
@@ -32,14 +20,14 @@ int	get_datas(t_hashtable *table)
 	int		ret;
 
 	type = KEYWORD;
-	printf("Entering get_datas...\n");
 	ret = 1;
+	key = NULL;
 	while (ret > 0)
 	{
 		ret = get_next_line(0, &line);
-		if (ft_strlen(line) == 0)
+		if (line[0] == '\0')
 		{
-			free(line);
+			//free(line);
 			break ;
 		}
 		if (type == KEYWORD)
@@ -53,9 +41,11 @@ int	get_datas(t_hashtable *table)
 			type = KEYWORD;
 		}
 	}
+	if (type == VALUE)
+		ht_insert(table, key, line);
 	return (ret);
 }
-
+#include <stdio.h>
 int	main(void)
 {
 	int				ret;
@@ -65,5 +55,7 @@ int	main(void)
 	ret = get_datas(table);
 	if (ret > 0)
 		search_datas(table);
+	printf("table->count = %d\n", table->count);
+	free_table(table);
 	return (0);
 }

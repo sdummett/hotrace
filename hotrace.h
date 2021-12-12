@@ -6,7 +6,7 @@
 /*   By: sdummett <sdummett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 13:46:57 by sdummett          #+#    #+#             */
-/*   Updated: 2021/12/12 13:49:25 by sdummett         ###   ########.fr       */
+/*   Updated: 2021/12/12 16:25:22 by sdummett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 # define HOTRACE_H
 
 # include "get_next_line.h"
-# include <stdio.h> //TO DELETE
 
 # define KEYWORD 0
 # define VALUE 1
-# define ALPHA_TABLE_SIZE 500
 # define CAPACITY 4294967
 
 typedef struct s_ht_item
@@ -40,11 +38,6 @@ typedef struct s_hashtable
 	int			size;
 	int			count;
 }	t_hashtable;
-
-typedef struct s_alpha_table
-{
-	t_hashtable	*table;
-}	t_alpha_table;
 
 /*
 ** Utils

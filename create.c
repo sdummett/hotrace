@@ -6,7 +6,7 @@
 /*   By: sdummett <sdummett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 10:36:28 by sdummett          #+#    #+#             */
-/*   Updated: 2021/12/12 15:37:55 by ctchen           ###   ########.fr       */
+/*   Updated: 2021/12/12 16:27:19 by sdummett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ t_ht_item	*create_item(char *key, char *value)
 	t_ht_item	*item;
 
 	item = (t_ht_item *)malloc(sizeof(t_ht_item));
+	if (!item)
+		return (NULL);
 	item->key = key;
 	item->value = value;
 	return (item);

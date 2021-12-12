@@ -6,7 +6,7 @@
 /*   By: sdummett <sdummett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 10:38:49 by sdummett          #+#    #+#             */
-/*   Updated: 2021/12/12 15:39:17 by ctchen           ###   ########.fr       */
+/*   Updated: 2021/12/12 16:36:13 by sdummett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	handle_collision(t_hashtable *table,
 {
 	t_bucket	*head;
 
-	printf("Entered handle_collision()\n");
 	head = table->buckets[index];
 	if (head == NULL)
 	{
@@ -78,7 +77,7 @@ void	ht_insert(t_hashtable *table, char *key, char *value)
 	t_ht_item	*current_item;
 	int			index;
 
-	item = create_item(key, value);
+	item = create_item(key, value); 
 	index = hash_function(key);
 	current_item = table->items[index];
 	if (current_item == NULL)
