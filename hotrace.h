@@ -6,7 +6,7 @@
 /*   By: sdummett <sdummett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 13:46:57 by sdummett          #+#    #+#             */
-/*   Updated: 2021/12/12 18:46:29 by sdummett         ###   ########.fr       */
+/*   Updated: 2021/12/12 20:06:56 by sdummett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 # define KEYWORD 0
 # define VALUE 1
-# define CAPACITY 4294967
+# define CAPACITY 455678
 
 typedef struct s_ht_item
 {
@@ -81,7 +81,7 @@ t_ht_item		*create_item(char *key, char *value);
 ** Insert
 */
 void			ht_insert(t_hashtable *table, char *key, char *value);
-t_bucket		*bucket_insert(t_bucket *list, t_ht_item *item);
+t_bucket		**bucket_insert(t_bucket **list, t_ht_item *item);
 
 /*
 ** Bucket

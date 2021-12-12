@@ -6,7 +6,7 @@
 /*   By: sdummett <sdummett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 10:38:49 by sdummett          #+#    #+#             */
-/*   Updated: 2021/12/12 18:46:08 by sdummett         ###   ########.fr       */
+/*   Updated: 2021/12/12 19:54:18 by sdummett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,44 +15,47 @@
 void	handle_collision(t_hashtable *table,
 		unsigned long index, t_ht_item *item)
 {
-	t_bucket	*head;
+	t_bucket	**head;
 
-	head = table->buckets[index];
-	if (head == NULL)
+	head = &table->buckets[index];
+	if (*head == NULL)
 	{
-		head = allocate_bucket();
-		head->item = item;
-		head->next = NULL;
-		table->buckets[index] = head;
+		*head = allocate_bucket();
+		(*head)->item = item;
+		(*head)->next = NULL;
+		table->buckets[index] = *head;
 		return ;
 	}
 	else
 	{
-		table->buckets[index] = bucket_insert(head, item);
+		// table->buckets[index] = bucket_insert(head, item);
+		bucket_insert(head, item);
 		return ;
 	}
 }
 
-t_bucket	*bucket_insert(t_bucket *list, t_ht_item *item)
+t_bucket	**bucket_insert(t_bucket **list, t_ht_item *item)
 {
 	t_bucket	*temp;
 
-	if (!list)
+	if (!*list)
 	{
-		list = init_bucket(allocate_bucket(), item);
+		*list = init_bucket(allocate_bucket(), item);
 		return (list);
 	}
-	else if (list->next == NULL)
+	else if ((*list)->next == NULL)
 	{
-		list->next = init_bucket(allocate_bucket(), item);
+		(*list)->next = init_bucket(allocate_bucket(), item);
 		return (list);
 	}
-	temp = list;
-	while (temp->next)
-	{
-		temp = temp->next;
-	}
-	temp->next = init_bucket(allocate_bucket(), item);
+	temp = *list;
+	// while (temp->next)
+	// {
+	// 	temp = temp->next;
+	// }
+	*list = init_bucket(allocate_bucket(), item);
+	(*list)->next = temp;
+	// temp->next = init_bucket(allocate_bucket(), item);
 	return (list);
 }
 

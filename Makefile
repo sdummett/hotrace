@@ -6,13 +6,13 @@
 #    By: sdummett <sdummett@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/11 14:15:47 by sdummett          #+#    #+#              #
-#    Updated: 2021/12/12 18:48:03 by sdummett         ###   ########.fr        #
+#    Updated: 2021/12/12 20:02:20 by sdummett         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -Ofast  -g3 #-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -O3  #-g3 #-fsanitize=address
 
 NAME = hotrace
 
@@ -27,7 +27,7 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 %.o: %.c
-	$(CC) -D BUFFER_SIZE=5000 -c $(CFLAGS) -o $@ $<
+	$(CC) -D BUFFER_SIZE=4096 -c $(CFLAGS) -o $@ $<
 
 clean:
 	rm -f $(OBJS)
