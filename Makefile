@@ -6,7 +6,7 @@
 #    By: sdummett <sdummett@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/11 14:15:47 by sdummett          #+#    #+#              #
-#    Updated: 2021/12/11 23:47:21 by sdummett         ###   ########.fr        #
+#    Updated: 2021/12/12 10:40:12 by sdummett         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 
 NAME = hotrace
 
-SRCS = hotrace.c get_next_line.c get_next_line_utils.c
+SRCS = hotrace.c get_next_line.c get_next_line_utils.c utils.c free.c search.c \
+		hash.c create.c insert.c
 
 OBJS = $(SRCS:.c=.o)
 
