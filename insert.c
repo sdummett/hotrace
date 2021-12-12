@@ -6,7 +6,7 @@
 /*   By: sdummett <sdummett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 10:38:49 by sdummett          #+#    #+#             */
-/*   Updated: 2021/12/12 19:54:18 by sdummett         ###   ########.fr       */
+/*   Updated: 2021/12/12 21:25:21 by sdummett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	handle_collision(t_hashtable *table,
 	}
 	else
 	{
-		// table->buckets[index] = bucket_insert(head, item);
 		bucket_insert(head, item);
 		return ;
 	}
@@ -49,13 +48,8 @@ t_bucket	**bucket_insert(t_bucket **list, t_ht_item *item)
 		return (list);
 	}
 	temp = *list;
-	// while (temp->next)
-	// {
-	// 	temp = temp->next;
-	// }
 	*list = init_bucket(allocate_bucket(), item);
 	(*list)->next = temp;
-	// temp->next = init_bucket(allocate_bucket(), item);
 	return (list);
 }
 
