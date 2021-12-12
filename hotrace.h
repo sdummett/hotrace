@@ -6,7 +6,7 @@
 /*   By: sdummett <sdummett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 13:46:57 by sdummett          #+#    #+#             */
-/*   Updated: 2021/12/12 16:25:22 by sdummett         ###   ########.fr       */
+/*   Updated: 2021/12/12 18:46:29 by sdummett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,11 @@ t_ht_item		*create_item(char *key, char *value);
 */
 void			ht_insert(t_hashtable *table, char *key, char *value);
 t_bucket		*bucket_insert(t_bucket *list, t_ht_item *item);
+
+/*
+** Bucket
+*/
 t_bucket		*allocate_bucket(void);
+t_bucket		*init_bucket(t_bucket *new, t_ht_item *item);
 
 #endif
