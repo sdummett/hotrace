@@ -6,11 +6,26 @@
 /*   By: sdummett <sdummett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 21:43:56 by sdummett          #+#    #+#             */
-/*   Updated: 2021/12/12 18:06:15 by sdummett         ###   ########.fr       */
+/*   Updated: 2021/12/12 18:24:02 by sdummett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "hotrace.h"
+
+char	*handle_line(int *type, char *key, char *line, t_hashtable *table)
+{
+	if (*type == KEYWORD)
+	{			
+		*type = VALUE;
+		return (line);
+	}
+	else if (*type == VALUE)
+	{
+		ht_insert(table, key, line);
+		*type = KEYWORD;
+	}
+	return (NULL);
+}
 
 int	get_datas(t_hashtable *table)
 {
@@ -30,16 +45,8 @@ int	get_datas(t_hashtable *table)
 			free(line);
 			break ;
 		}
-		if (type == KEYWORD)
-		{			
-			key = line;
-			type = VALUE;
-		}
-		else if (type == VALUE)
-		{
-			ht_insert(table, key, line);
-			type = KEYWORD;
-		}
+		else
+			key = handle_line(&type, key, line, table);
 	}
 	if (type == VALUE)
 		ht_insert(table, key, NULL);
