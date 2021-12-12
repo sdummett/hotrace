@@ -6,7 +6,7 @@
 /*   By: sdummett <sdummett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 10:20:25 by sdummett          #+#    #+#             */
-/*   Updated: 2021/12/12 11:56:51 by sdummett         ###   ########.fr       */
+/*   Updated: 2021/12/12 12:22:53 by sdummett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,9 @@ void	search_datas(t_alpha_table *alpha_table)
 	printf("Entering search_datas...\n");
 	while (get_next_line(0, &line) > 0)
 	{
-		print_search(alpha_table[(unsigned int)line[0]].table, line);
+		if (ft_strlen(line) == 0)
+			free(line);
+		else
+			print_search(alpha_table[(unsigned int)line[0]].table, line);
 	}
 }

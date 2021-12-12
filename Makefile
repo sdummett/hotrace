@@ -6,13 +6,13 @@
 #    By: sdummett <sdummett@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/11 14:15:47 by sdummett          #+#    #+#              #
-#    Updated: 2021/12/12 10:40:12 by sdummett         ###   ########.fr        #
+#    Updated: 2021/12/12 13:01:46 by sdummett         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address#-O3 
 
 NAME = hotrace
 

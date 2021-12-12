@@ -6,7 +6,7 @@
 /*   By: sdummett <sdummett@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 10:38:49 by sdummett          #+#    #+#             */
-/*   Updated: 2021/12/12 11:42:25 by sdummett         ###   ########.fr       */
+/*   Updated: 2021/12/12 13:34:23 by sdummett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	handle_collision(t_hashtable *table,
         // We need to create the list
 		head = allocate_bucket();
 		head->item = item;
+		head->next = NULL;
 		table->buckets[index] = head;
 		return ;
 	}
@@ -63,7 +64,7 @@ t_bucket	*bucket_insert(t_bucket *list, t_ht_item *item)
 	}
 	t_bucket	*temp = list;
 	// This below seems BAD
-	while (temp->next->next)
+	while (temp->next)
 	{
 		temp = temp->next;
 	}
